@@ -22,10 +22,9 @@ const Navbar = () => {
         <span>CYBER<span className="text-primary">DOCII</span></span>
       </Link>
       <div className="nav-links">
-        <Link to="/discovery" className="nav-link">Discover</Link>
+        {!user && <Link to="/discovery" className="nav-link">Discover</Link>}
         {user ? (
           <>
-            <Link to="/dashboard" className="nav-link">Dashboard</Link>
             <div className="user-info">
               <span className="user-role">Operator</span>
               <span className="user-name">{user.username || user.email}</span>
