@@ -45,9 +45,11 @@ const registerUser = async (req, res) => {
       throw new Error('Invalid user data');
     }
   } catch (error) {
-    // If the error status was already set (e.g. 400), keep it. Otherwise default to 500 (done by errorHandler usually, but manual setting here helps)
-    const statusCode = res.statusCode && res.statusCode !== 200 ? res.statusCode : 400;
-    res.status(statusCode).json({ message: error.message });
+    const statusCode = res.statusCode && res.statusCode !== 200 ? res.statusCode : 500;
+    res.status(statusCode).json({
+      message: error.message,
+      error: process.env.NODE_ENV === 'production' ? 'Internal Server Error' : error.stack
+    });
   }
 };
 
