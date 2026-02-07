@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { getProjects } from '../api/projectApi';
+import { AuthContext } from '../context/AuthContext';
 import { motion } from 'framer-motion';
 import { FaArrowLeft, FaProjectDiagram, FaCalendarAlt, FaChevronRight } from 'react-icons/fa';
 import '../styles/pages/UserProjects.css';
 
 const UserProjects = () => {
     const { userId } = useParams();
+    const { user } = useContext(AuthContext);
     const [projects, setProjects] = useState([]);
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
@@ -32,8 +34,8 @@ const UserProjects = () => {
 
             <header className="up-header">
                 <div className="up-header-content">
-                    <button className="back-btn" onClick={() => navigate('/')}>
-                        <FaArrowLeft /> Back to Discovery
+                    <button className="back-btn" onClick={() => navigate(user ? '/dashboard' : '/')}>
+                        <FaArrowLeft /> {user ? 'Back to Dashboard' : 'Back to Discovery'}
                     </button>
                     <h1 className="logo">Cyber<span>Docii</span></h1>
                 </div>

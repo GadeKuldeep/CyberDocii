@@ -20,12 +20,13 @@ const ProtectedRoute = ({ children }) => {
 };
 
 function App() {
+  const { user } = useContext(AuthContext);
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={user ? <Navigate to="/dashboard" replace /> : <Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/discovery" element={<Home />} />
+      <Route path="/discovery" element={user ? <Navigate to="/dashboard" replace /> : <Home />} />
       <Route path="/user/:userId" element={<UserProjects />} />
       <Route
         path="/dashboard"
