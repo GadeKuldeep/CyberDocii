@@ -63,3 +63,51 @@ textarea {
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(0, 191, 255, 0.5);
 }
+
+/* PDF Export Button Styles */
+.pdf-download-btn,
+.card-pdf-btn,
+.up-pdf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0, 191, 255, 0.1);
+  border: 1px solid rgba(0, 191, 255, 0.3);
+  color: var(--color-primary);
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.pdf-download-btn:hover,
+.card-pdf-btn:hover,
+.up-pdf-btn:hover {
+  background: var(--color-primary);
+  color: black;
+  box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+}
+
+.card-pdf-btn {
+  font-size: 0.65rem;
+  padding: 0.15rem 0.4rem;
+}
+
+.up-pdf-btn {
+  margin-left: 1rem;
+}
+
+.footer-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.editor-header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}

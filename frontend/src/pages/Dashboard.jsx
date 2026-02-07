@@ -7,6 +7,7 @@ import { AuthContext } from '../context/AuthContext';
 import { FaPlus, FaTrash, FaFolderOpen, FaClock, FaSearch, FaUser } from 'react-icons/fa';
 import { format } from 'date-fns';
 import { motion } from 'framer-motion';
+import PdfExportButton from '../components/PdfExportButton';
 import '../styles/pages/Dashboard.css';
 
 const Dashboard = () => {
@@ -133,11 +134,19 @@ const Dashboard = () => {
                       <p className="project-id">{project._id}</p>
                     </div>
 
+
                     <div className="project-footer">
                       <span className="project-date"><FaClock size={12} /> {format(new Date(project.updatedAt), 'MMM dd, yyyy')}</span>
-                      <span className="project-status">
-                        {project.status}
-                      </span>
+                      <div className="footer-actions">
+                        <PdfExportButton
+                          projectId={project._id}
+                          projectTitle={project.title}
+                          className="card-pdf-btn"
+                        />
+                        <span className="project-status">
+                          {project.status}
+                        </span>
+                      </div>
                     </div>
                   </motion.div>
                 ))}

@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import BlockEditor from '../components/BlockEditor';
+import PdfExportButton from '../components/PdfExportButton';
 import { getProjectById } from '../api/projectApi';
 import { AuthContext } from '../context/AuthContext';
 import { FaArrowLeft, FaHistory } from 'react-icons/fa';
@@ -46,13 +47,20 @@ const ProjectEditor = () => {
 
           </div>
 
-          <Link
-            to={`/journey/${id}`}
-            className="journey-link-btn"
-          >
-            <FaHistory />
-            VIEW JOURNEY
-          </Link>
+          <div className="editor-header-right">
+            <PdfExportButton
+              projectId={id}
+              projectTitle={project.title}
+              className="journey-link-btn" // Reusing same style for consistency
+            />
+            <Link
+              to={`/journey/${id}`}
+              className="journey-link-btn"
+            >
+              <FaHistory />
+              VIEW JOURNEY
+            </Link>
+          </div>
         </div>
 
         <BlockEditor projectId={id} readOnly={!isOwner} />

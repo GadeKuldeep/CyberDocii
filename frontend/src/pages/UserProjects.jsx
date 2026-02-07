@@ -3,6 +3,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { getProjects } from '../api/projectApi';
 import { AuthContext } from '../context/AuthContext';
 import { motion } from 'framer-motion';
+import PdfExportButton from '../components/PdfExportButton';
 import { FaArrowLeft, FaProjectDiagram, FaCalendarAlt, FaChevronRight } from 'react-icons/fa';
 import '../styles/pages/UserProjects.css';
 
@@ -69,6 +70,11 @@ const UserProjects = () => {
                                         <div className="project-meta">
                                             <span><FaCalendarAlt /> Updated {new Date(project.updatedAt).toLocaleDateString()}</span>
                                             <span className="status-badge">{project.status}</span>
+                                            <PdfExportButton
+                                                projectId={project._id}
+                                                projectTitle={project.title}
+                                                className="up-pdf-btn"
+                                            />
                                         </div>
                                     </div>
                                     <div className="project-arrow">
