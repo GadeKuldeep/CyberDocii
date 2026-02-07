@@ -1,0 +1,136 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-bg-noise {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.login-glow {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 50%;
+    background: radial-gradient(circle, rgba(0, 191, 255, 0.05) 0%, transparent 70%);
+    filter: blur(100px);
+    pointer-events: none;
+}
+
+.login-card {
+    position: relative;
+    z-index: 10;
+    width: 400px;
+    background: rgba(10, 10, 10, 0.5);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--color-border);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.login-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.025em;
+}
+
+.login-subtitle {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+}
+
+.login-error {
+    color: #f87171;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+    background: rgba(239, 68, 68, 0.1);
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.form-input {
+    width: 100%;
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 0.75rem;
+    color: white;
+    font-size: 0.875rem;
+    transition: all 0.2s;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: rgba(0, 191, 255, 0.5);
+    box-shadow: 0 0 0 1px rgba(0, 191, 255, 0.5);
+}
+
+.login-button {
+    width: 100%;
+    background-color: white;
+    color: black;
+    font-weight: 700;
+    padding: 0.75rem;
+    border-radius: 8px;
+    transition: all 0.2s;
+    margin-top: 0.5rem;
+}
+
+.login-button:hover {
+    background-color: #e5e7eb;
+    transform: scale(0.98);
+}
+
+.login-footer {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.login-link {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    transition: color 0.2s;
+}
+
+.login-link span {
+    color: white;
+    text-decoration: underline;
+}
+
+.login-link:hover {
+    color: var(--color-primary);
+}

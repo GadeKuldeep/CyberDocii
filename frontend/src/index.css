@@ -1,0 +1,65 @@
+:root {
+  --color-bg-dark: #000000;
+  --color-bg-secondary: #0a0a0a;
+  --color-primary: #00BFFF;
+  /* Sky Blue */
+  --color-primary-hover: #0099CC;
+  --color-secondary: #1E90FF;
+  /* Dodger Blue */
+  --color-text-main: #f3f4f6;
+  --color-text-muted: #9ca3af;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --font-main: 'Inter', sans-serif;
+  --font-mono: 'Fira Code', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-main);
+  font-family: var(--font-main);
+  background-image:
+    radial-gradient(circle at 50% 0%, rgba(0, 191, 255, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 100% 100%, rgba(30, 144, 255, 0.06) 0%, transparent 40%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+
+input,
+textarea {
+  font-family: inherit;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 191, 255, 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 191, 255, 0.5);
+}

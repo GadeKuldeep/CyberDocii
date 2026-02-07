@@ -1,0 +1,209 @@
+.journey-layout {
+    min-height: 100vh;
+}
+
+.journey-container {
+    max-width: 896px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem;
+}
+
+.journey-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+}
+
+.journey-back-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-text-muted);
+    transition: color 0.2s;
+}
+
+.journey-back-link:hover {
+    color: white;
+}
+
+.journey-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    color: white;
+}
+
+/* Filter Bar */
+.filter-bar {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+}
+
+.filter-bar::-webkit-scrollbar {
+    display: none;
+}
+
+.filter-btn {
+    padding: 0.25rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-family: var(--font-mono);
+    border: 1px solid;
+    text-transform: capitalize;
+    background: transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.filter-btn.active {
+    background-color: white;
+    color: black;
+    border-color: white;
+}
+
+.filter-btn.inactive {
+    border-color: rgba(255, 255, 255, 0.2);
+    color: var(--color-text-muted);
+}
+
+.filter-btn.inactive:hover {
+    border-color: rgba(255, 255, 255, 0.5);
+    color: white;
+}
+
+/* Timeline */
+.timeline-wrapper {
+    position: relative;
+    border-left: 1px solid var(--color-border);
+    margin-left: 1rem;
+}
+
+.timeline-event {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 2rem;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -5px;
+    top: 0.5rem;
+    width: 10px;
+    height: 10px;
+    background-color: var(--color-bg-dark);
+    border: 1px solid var(--color-primary);
+    border-radius: 50%;
+}
+
+.timeline-card {
+    background-color: var(--color-bg-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    border-radius: 12px;
+    transition: border-color 0.2s;
+}
+
+.timeline-card:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.action-badge {
+    font-size: 0.75rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 4px;
+    border: 1px solid;
+    text-transform: capitalize;
+}
+
+.action-create {
+    background-color: rgba(34, 197, 94, 0.1);
+    color: #22c55e;
+    border-color: rgba(34, 197, 94, 0.2);
+}
+
+.action-delete {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #f87171;
+    border-color: rgba(239, 68, 68, 0.2);
+}
+
+.action-update {
+    background-color: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+    border-color: rgba(59, 130, 246, 0.2);
+}
+
+.default-action {
+    /* Fallback */
+    background-color: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+    border-color: rgba(59, 130, 246, 0.2);
+}
+
+.timestamp {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    font-family: var(--font-mono);
+}
+
+.icon-box {
+    background-color: #1a1a1a;
+    padding: 0.375rem;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timeline-details {
+    font-size: 0.875rem;
+    color: #d1d5db;
+    font-family: var(--font-mono);
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.no-events {
+    margin-left: 2rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+}
+
+/* Icon Colors */
+.icon-command {
+    color: #4ade80;
+}
+
+.icon-error {
+    color: #f87171;
+}
+
+.icon-image {
+    color: #60a5fa;
+}
+
+.icon-default {
+    color: #9ca3af;
+}
