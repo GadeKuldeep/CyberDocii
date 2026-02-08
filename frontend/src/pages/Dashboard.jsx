@@ -120,7 +120,7 @@ const Dashboard = () => {
                     className="project-card"
                   >
                     <div className="delete-btn-wrapper">
-                      <button onClick={() => handleDelete(project._id)} className="delete-btn">
+                      <button onClick={() => handleDelete(project._id)} className="delete-btn" aria-label="Delete Project">
                         <FaTrash />
                       </button>
                     </div>

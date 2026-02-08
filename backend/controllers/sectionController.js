@@ -1,6 +1,7 @@
 const Section = require('../models/Section');
 const Journey = require('../models/Journey');
 const Project = require('../models/Project');
+const mongoose = require('mongoose');
 
 // Helper to check ownership
 const verifyProjectOwnership = async (projectId, userId) => {
@@ -136,7 +137,7 @@ const reorderSections = async (req, res) => {
 
     const operations = updates.map(u => ({
       updateOne: {
-        filter: { _id: u._id },
+        filter: { _id: new mongoose.Types.ObjectId(u._id) },
         update: { $set: { order: u.order } }
       }
     }));

@@ -104,23 +104,23 @@ const BlockEditor = ({ projectId, readOnly }) => {
       {!readOnly && (
         <div className="toolbar-container">
           <span className="toolbar-label">Add Block</span>
-          <button onClick={() => addBlock('text')} className="toolbar-btn" title="Text">
+          <button onClick={() => addBlock('text')} className="toolbar-btn" title="Text" aria-label="Add Text Block">
             <FaFont size={18} />
           </button>
-          <button onClick={() => addBlock('command')} className="toolbar-btn btn-cmd" title="Command">
+          <button onClick={() => addBlock('command')} className="toolbar-btn btn-cmd" title="Command" aria-label="Add Command Block">
             <FaTerminal size={18} />
           </button>
-          <button onClick={() => addBlock('output')} className="toolbar-btn btn-out" title="Output">
+          <button onClick={() => addBlock('output')} className="toolbar-btn btn-out" title="Output" aria-label="Add Output Block">
             <FaCode size={18} />
           </button>
-          <button onClick={() => addBlock('error')} className="toolbar-btn btn-err" title="Error">
+          <button onClick={() => addBlock('error')} className="toolbar-btn btn-err" title="Error" aria-label="Add Error Block">
             <FaExclamationTriangle size={18} />
           </button>
           <div className="toolbar-separator"></div>
-          <button onClick={() => addBlock('image')} className="toolbar-btn btn-img" title="Image">
+          <button onClick={() => addBlock('image')} className="toolbar-btn btn-img" title="Image" aria-label="Add Image Block">
             <FaImage size={18} />
           </button>
-          <button onClick={() => addBlock('video')} className="toolbar-btn btn-vid" title="Video">
+          <button onClick={() => addBlock('video')} className="toolbar-btn btn-vid" title="Video" aria-label="Add Video Block">
             <FaVideo size={18} />
           </button>
         </div>

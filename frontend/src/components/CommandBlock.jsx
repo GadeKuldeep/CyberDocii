@@ -9,7 +9,7 @@ const CommandBlock = ({ content, readOnly, autoSave }) => {
   return (
     <div className="command-block">
       <div className="copy-btn">
-        <button onClick={copyToClipboard} style={{ display: 'flex', alignItems: 'center', gap: '4px', background: 'none', border: 'none', color: 'inherit', cursor: 'pointer' }}>
+        <button onClick={copyToClipboard} aria-label="Copy Command" style={{ display: 'flex', alignItems: 'center', gap: '4px', background: 'none', border: 'none', color: 'inherit', cursor: 'pointer' }}>
           <FaCopy /> COPY
         </button>
       </div>

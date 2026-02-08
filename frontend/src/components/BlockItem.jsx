@@ -66,7 +66,7 @@ const BlockItem = ({ section, index, projectId, onUpdate, onDelete, readOnly }) 
                     className={`block-item-wrapper ${snapshot.isDragging ? 'block-dragging' : ''} ${readOnly ? 'block-read-only' : ''}`}
                 >
                     {!readOnly && (
-                        <div {...provided.dragHandleProps} className="drag-handle">
+                        <div {...provided.dragHandleProps} className="drag-handle" aria-label="Drag to reorder">
                             <FaGripVertical />
                         </div>
                     )}
@@ -79,6 +79,7 @@ const BlockItem = ({ section, index, projectId, onUpdate, onDelete, readOnly }) 
                         <button
                             onClick={() => onDelete(section._id)}
                             className="block-actions-right"
+                            aria-label="Delete Block"
                         >
                             <FaTrash size={14} />
                         </button>
