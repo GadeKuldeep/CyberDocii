@@ -2,6 +2,25 @@ import React, { useState } from 'react';
 import { jsPDF } from 'jspdf';
 import { FaDownload } from 'react-icons/fa';
 import { getSections } from '../api/sectionApi';
+import { BASE_URL } from '../api/axios';
+
+// Helper to convert URL to Base64
+const imageUrlToBase64 = async (url) => {
+    try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error('Network response was not ok');
+        const blob = await response.blob();
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onloadend = () => resolve(reader.result);
+            reader.onerror = reject;
+            reader.readAsDataURL(blob);
+        });
+    } catch (e) {
+        console.error("Failed to load image for PDF", e);
+        return null;
+    }
+};
 
 const PdfExportButton = ({ projectId, projectTitle, className }) => {
     const [loading, setLoading] = useState(false);
@@ -111,14 +130,51 @@ const PdfExportButton = ({ projectId, projectTitle, className }) => {
 
                     case 'image':
                         if (section.content) {
-                            // Since we can't easily wait for images to load in this simple loop
-                            // without making it complex, we'll add a label.
-                            // In a real app, you'd fetch the image data as base64 first.
-                            doc.setFont("helvetica", "italic");
-                            doc.setFontSize(9);
-                            doc.setTextColor(0, 114, 178);
-                            doc.text(`[ATTACHED_IMAGE: ${section.content.substring(0, 30)}...]`, margin, yOffset);
-                            yOffset += 10;
+                            let imgUrl = section.content;
+                            if (imgUrl.startsWith('/uploads')) {
+                                imgUrl = `${BASE_URL}${imgUrl}`;
+                            } else if (imgUrl.includes('localhost:5000')) {
+                                imgUrl = imgUrl.replace('http://localhost:5000', BASE_URL);
+                            }
+
+                            try {
+                                const base64 = await imageUrlToBase64(imgUrl);
+                                if (base64) {
+                                    // We need to get dimensions to maintain aspect ratio
+                                    const img = new Image();
+                                    await new Promise((res) => {
+                                        img.onload = res;
+                                        img.onerror = res;
+                                        img.src = base64;
+                                    });
+
+                                    const imgWidth = contentWidth;
+                                    const imgHeight = (img.height * imgWidth) / img.width || 50;
+
+                                    // Detect format
+                                    let format = 'PNG';
+                                    if (base64.includes('image/jpeg') || base64.includes('image/jpg')) format = 'JPEG';
+                                    if (base64.includes('image/webp')) format = 'WEBP';
+
+                                    // Page overflow check for image
+                                    if (yOffset + imgHeight > 250) {
+                                        doc.addPage();
+                                        yOffset = 20;
+                                    }
+
+                                    doc.addImage(base64, format, margin, yOffset, imgWidth, imgHeight);
+                                    yOffset += imgHeight + 10;
+                                } else {
+                                    doc.setFont("helvetica", "italic");
+                                    doc.setFontSize(9);
+                                    doc.setTextColor(150, 150, 150);
+                                    doc.text(`[Image Load Failed: ${section.content.substring(0, 20)}...]`, margin, yOffset);
+                                    yOffset += 10;
+                                }
+                            } catch (err) {
+                                doc.text(`[Image Error]`, margin, yOffset);
+                                yOffset += 10;
+                            }
                         }
                         break;
                 }

@@ -41,7 +41,12 @@ const ImageBlock = ({ content, autoSave, projectId, readOnly }) => {
     <div className="media-block">
       {content ? (
         <div className="media-container">
-          <img src={getDisplayUrl(content)} alt="Block Content" className="media-content" />
+          <img
+            src={getDisplayUrl(content)}
+            alt="Block Content"
+            className="media-content"
+            crossOrigin="anonymous"
+          />
           {!readOnly && (
             <button
               className="change-media-btn"

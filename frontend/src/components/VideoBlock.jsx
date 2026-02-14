@@ -40,7 +40,12 @@ const VideoBlock = ({ content, autoSave, projectId, readOnly }) => {
     <div className="media-block">
       {content ? (
         <div className="media-container">
-          <video controls src={getDisplayUrl(content)} className="media-content" />
+          <video
+            controls
+            src={getDisplayUrl(content)}
+            className="media-content"
+            crossOrigin="anonymous"
+          />
           {!readOnly && (
             <button
               className="change-media-btn"
