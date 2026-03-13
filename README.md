@@ -4,7 +4,8 @@
 
 Instead of static notes, CyberDocii lets you build **living documentation** composed of modular blocks (commands, outputs, images, links) and automatically tracks the **journey** of how every project evolved — giving you a flight recorder for your work.
 
-> 🔗 **Live Demo:** *(coming soon)*
+## 🔗 Live Demo
+[cyberdocii.netlify.app](https://cyberdocii.netlify.app)
 
 ---
 
