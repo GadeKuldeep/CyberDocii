@@ -227,6 +227,12 @@ npm run dev
 ```
 
 ---
+## 🎯 Use Cases
+
+- **CTF Write-ups** — Document challenge solutions step by step as you solve them
+- **Penetration Test Reports** — Structure recon → exploitation → post-exploitation workflows
+- **SOC Incident Documentation** — Log investigation steps with timestamped evidence
+- **Lab Setup Guides** — Build reproducible tutorials with command/output blocks
 
 ## 🌐 Deployment
 
